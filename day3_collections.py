@@ -1,4 +1,8 @@
 
+my_string = "peanut is awesome"
+my_string = my_string.split(" ")
+print(my_string)
+
 my_list = ["joel", 33, ["the dark", "wasps"]]
 
 print(my_list)
