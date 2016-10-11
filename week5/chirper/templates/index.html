@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chirper</title>
+        <style media="screen">
+            /*
+                CSS SELECTORS ARE DEFINED HERE!!!!
+            */
+            .purple_text {
+                color: rgba(128, 0, 95, 0.5);
+            }
+            .sans_serif {
+                font-family: sans-serif;
+            }
+            .purple_main_header {
+                font-family: sans-serif;
+                color: rgba(128, 0, 95, 0.5);
+            }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="sans_serif purple_text">Welcome to MY site</h1>
+            <h2>A little smaller tag</h2>
+            <h3>A much smaller header tag</h3>
+            <a href="{% url 'favorites_view' %}">My favorite football team!</a>
+            <div class="purple_main_header">
+                This text is purple!
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
+    </body>
+</html>
