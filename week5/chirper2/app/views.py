@@ -6,20 +6,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 
-from app.models import Chirp
+from app.models import Chirp, Vote
 from app.forms import ChirpForm
 
-# Create your views here.
-def index_view(request):
-    if request.POST:
-        instance = ChirpForm(request.POST)
-        if instance.is_valid():
-            instance.save()
-    context = {
-        "form": ChirpForm(),
-        "all_chirps": Chirp.objects.all()
-    }
-    return render(request, "index.html", context)
 
 def about_view(request):
     print("JOEL!!!!!" * 40)
@@ -60,3 +49,19 @@ class UserCreateView(CreateView):
     model = User
     form_class = UserCreationForm
     success_url = "/chirps" # show reverse_lazy
+
+
+class ChirpVoteView(CreateView):
+    model = Vote
+    success_url = "/"
+    fields = ('value',)
+
+    def form_valid(self, form):
+        try:
+            Vote.objects.get(user=self.request.user, chirp_id=self.kwargs["pk"]).delete()
+        except Vote.DoesNotExist:
+            pass
+        instance = form.save(commit=False)
+        instance.user = self.request.user
+        instance.chirp = Chirp.objects.get(pk=self.kwargs["pk"])
+        return super().form_valid(form)
