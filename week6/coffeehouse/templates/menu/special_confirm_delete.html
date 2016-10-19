@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form class="" action="" method="post">
+        {% csrf_token %}
+        <p>
+            You are about to delete the Special: {{ object.title }}. Are you sure?
+        </p>
+        <input type="submit" value="Yes">
+        <a href="{% url 'index_view' %}">No, get me out of here.</a>
+    </form>
+{% endblock %}
