@@ -16,12 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from menu_api.views import SpecialListAPIView, SpecialDetailAPIView
+from menu_api.views import SpecialListCreateAPIView, SpecialDetailUpdateDestroyAPIView, IngredientListAPIView, IngredientDetailAPIView
 from menu.views import IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', IndexView.as_view(), name="index_view"),
-    url(r'^specialsASLKDASD/$', SpecialListAPIView.as_view(), name="special_list_api_view"),
-    url(r'^specialsASKDLJASLKDH/(?P<pk>\d+)/$', SpecialDetailAPIView.as_view(), name="special_detail_api_view")
+    url(r'^ingredients/$', IngredientListAPIView.as_view(), name="ingredient_list_api_view"),
+    url(r'^ingredients/(?P<pk>\d+)/$', IngredientDetailAPIView.as_view(), name="ingredient_detail_api_view"),
+    url(r'^specials/$', SpecialListCreateAPIView.as_view(), name="special_list_create_api_view"),
+    url(r'^specials/(?P<pk>\d+)/$', SpecialDetailUpdateDestroyAPIView.as_view(), name="special_detail_update_destroy_api_view")
 ]
