@@ -19,8 +19,11 @@ from django.contrib import admin
 from menu_api.views import SpecialListCreateAPIView, SpecialDetailUpdateDestroyAPIView, IngredientListAPIView, IngredientDetailAPIView
 from menu.views import IndexView
 
+from rest_framework.authtoken.views import obtain_auth_token
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^obtain-token/$', obtain_auth_token),
     url(r'^$', IndexView.as_view(), name="index_view"),
     url(r'^ingredients/$', IngredientListAPIView.as_view(), name="ingredient_list_api_view"),
     url(r'^ingredients/(?P<pk>\d+)/$', IngredientDetailAPIView.as_view(), name="ingredient_detail_api_view"),
