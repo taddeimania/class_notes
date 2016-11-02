@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Welcome to javascript town</h1>
+        <p id="meat_text">
+            Bacon ipsum dolor amet landjaeger turducken ground round, chicken corned beef pig biltong alcatra shoulder. Alcatra jowl tongue, cow kevin capicola drumstick pig andouille brisket picanha. Rump spare ribs prosciutto venison salami drumstick ham hock turducken sirloin doner. Meatloaf t-bone bacon tongue. Pancetta fatback tenderloin ribeye turkey, landjaeger ground round capicola jowl hamburger bacon t-bone.
+        </p>
+        <p>
+            i have transcended python into javascript async
+        </p>
+
+        <p id="clickBye">
+
+        </p>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            /*
+            console.log("hello world");
+            $("#meat_text").on("click", function(e) {
+                $("#meat_text").text("Coffee has gone cold. Sounds like dido lyrics");
+            });
+            */
+            var wordArray = ["this", "is", "the", "weirdest", "project", "ever"];
+            for (var i = 0 ; i < wordArray.length ; i++) {
+                var newElement = $("<span id=" + i + ">")
+                                 .text(wordArray[i] + " ")
+                                 .on("click", function(e) {
+                                     e.target.innerText = "JOEL";
+                                 });
+                $("#clickBye").append(newElement);
+            }
+        </script>
+    </body>
+</html>
