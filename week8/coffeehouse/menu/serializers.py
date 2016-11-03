@@ -5,6 +5,7 @@ from menu.models import Special
 
 
 class SpecialSerializer(serializers.ModelSerializer):
+    image_url = serializers.ReadOnlyField()
 
     class Meta:
         model = Special
